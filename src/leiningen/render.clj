@@ -32,7 +32,11 @@
 
       :sass (let [opts [ "--update" "--force" "-t" sass-style (str src-path ":" dest-path)]
                   add-opts (if source-maps (source-map-args) [])]
-                 (concat ["sass"] add-opts opts)))))
+                 (concat ["sass"] add-opts opts))
+
+      :dart-sass (let [opts [ "--update" "-s" sass-style (str src-path ":" dest-path)]
+                       add-opts (if source-maps ["--source-map"] [])]
+                   (concat ["sass"] add-opts opts)))))
 
 (defn render
   [src-file dest-file options]
@@ -40,7 +44,6 @@
     (io/make-parents dest-file)
     (let [opts-vec (build-command-vec src-file dest-file options)]
       (println (str "  [sass] - " (.getName src-file)))
-      ;;(println opts-vec)
       (println (:err (apply shell/sh opts-vec))))))
 
 (defn render-once!
@@ -51,11 +54,11 @@
 
 (defn render-loop!
   ([options]
-    (render-once! options)
-    (start-watch [{:path (:src options)
-                   :event-types [:create :modify :delete]
-                   :callback (fn [_ _] (render-once! options))
-                   :options {:recursive true}}])
-    (let [t (Thread/currentThread)]
-      (locking t
-        (.wait t)))))
+   (render-once! options)
+   (start-watch [{:path (:src options)
+                  :event-types [:create :modify :delete]
+                  :callback (fn [_ _] (render-once! options))
+                  :options {:recursive true}}])
+   (let [t (Thread/currentThread)]
+     (locking t
+       (.wait t)))))

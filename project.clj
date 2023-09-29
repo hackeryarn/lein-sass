@@ -1,4 +1,4 @@
-(defproject lein-sass "0.5.0"
+(defproject com.github.hackeryarn/lein-sass "0.6.0"
   :description "SASS autobuilder plugin"
   :url "https://github.com/tuhlmann/lein-sass"
   :license {:name "Eclipse Public License - v 1.0"
@@ -24,5 +24,4 @@
   :hooks [leiningen.sass]
 
   :eval-in-leiningen true
-  :min-lein-version "2.0.0"
-  )
+  :min-lein-version "2.0.0")  
