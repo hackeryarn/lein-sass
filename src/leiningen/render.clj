@@ -32,7 +32,11 @@
 
       :sass (let [opts [ "--update" "--force" "-t" sass-style (str src-path ":" dest-path)]
                   add-opts (if source-maps (source-map-args) [])]
-                 (concat ["sass"] add-opts opts)))))
+                 (concat ["sass"] add-opts opts))
+
+      :dart-sass (let [opts [ "--update" "-s" sass-style (str src-path ":" dest-path)]
+                       add-opts (if source-maps ["--source-map"] [])]
+                   (concat ["sass"] add-opts opts)))))
 
 (defn render
   [src-file dest-file options]

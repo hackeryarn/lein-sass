@@ -41,7 +41,7 @@ Here is an example of `project.clj` with all the possible definitions.
          ;; :delete-output-dir true
          ;; :source-maps true
          ;; :style :nested
-         ;; :command :sassc (:sass or :sassc are recognized values)
+         ;; :command :sassc (:sass, :sassc, or :dart-sass are recognized values)
          }
 ```
 
