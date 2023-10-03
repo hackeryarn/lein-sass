@@ -1,13 +1,16 @@
 (ns leiningen.cleaner
-  (:use leiningen.utils)
-  (:require [clojure.java.io :as io]))
+  (:require [leiningen.utils :as utils]
+            [clojure.java.io :as io]
+            [clojure.string :as str]))
+
+(defn target->dest-file [target]
+  (-> target
+      (str/split #":" 2)
+      last
+      io/file))
 
 (defn clean-all!
-  [{:keys [output-directory delete-output-dir] :as options}]
-  (doseq [[_ dest-file] (files-from options)]
-    (delete-file! (io/file dest-file))
-    (delete-file! (io/file (str (.getPath dest-file) ".map"))))
-
-  (when (and delete-output-dir (exists output-directory) (dir-empty? output-directory))
-    (println (str "Destination folder " output-directory " is empty - Deleting it"))
-    (delete-directory-recursively! output-directory)))
+  [{:keys [targets]}]
+  (doseq [dest-file (map target->dest-file targets)]
+    (utils/delete-file! dest-file)
+    (utils/delete-file! (io/file (str (.getPath dest-file) ".map")))))
