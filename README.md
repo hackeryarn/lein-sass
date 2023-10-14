@@ -58,6 +58,8 @@ $ lein sass clean
 
 ## Hooks
 
+**Warning:** This feature is currently deprecated and will be removed in Leningen 3.0. At that time, this project will also stop supporting hooks.
+
 The following hooks are supported by lein-sass:
 
 ```
