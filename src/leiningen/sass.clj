@@ -47,7 +47,7 @@
   {:help-arglists '([once auto clean]) :subtasks [#'once #'watch #'clean]}
   ([_]
    (abort (lhelp/help-for "sass")))
-  ([project subtask & args]
+  ([project subtask & _args]
    (let [options (utils/normalize-options (:sass project))]
      (case (keyword subtask)
        :once (once options)

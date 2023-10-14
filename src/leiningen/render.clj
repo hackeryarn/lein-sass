@@ -1,5 +1,4 @@
 (ns leiningen.render
-  (:use leiningen.utils)
   (:require [leiningen.utils :as utils]
             [clojure.java.shell :as shell]))
 
