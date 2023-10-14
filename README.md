@@ -1,4 +1,4 @@
-# lein-sass 
+# lein-sass [![Test](https://github.com/hackeryarn/lein-sass/actions/workflows/test.yaml/badge.svg)](https://github.com/hackeryarn/lein-sass/actions/workflows/test.yaml)
 
 Leiningen plugin to compile SASS/SCSS files with [Dart Sass](https://sass-lang.com/dart-sass/)
 
