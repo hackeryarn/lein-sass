@@ -1,4 +1,4 @@
-(defproject lein-sass "1.0.0"
+(defproject lein-sass "1.0.1"
   :description "SASS autobuilder plugin"
   :url "https://github.com/hackeryarn/lein-sass"
   :license {:name "Eclipse Public License - v 1.0"
