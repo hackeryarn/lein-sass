@@ -1,4 +1,4 @@
-# lein-sass [![Build Status](https://travis-ci.org/101loops/lein-sass.svg)](https://travis-ci.org/101loops/lein-sass)
+# lein-sass 
 
 Leiningen plugin to compile SASS/SCSS files with [Dart Sass](https://sass-lang.com/dart-sass/)
 
