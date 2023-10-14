@@ -9,5 +9,9 @@
   :profiles {:spec {:sass {:targets ["test/files:test/out"]}}
              :spec-map {:sass {:targets ["test/files:test/out/map"]
                                :source-maps true}}}
+  :deploy-repositories [["clojars" {:url "https://clojars.org/repo"
+                                    :username :env/clojars_username
+                                    :password :env/clojars_password
+                                    :sign-releases false}]]
   :eval-in-leiningen true
   :min-lein-version "2.0.0")
