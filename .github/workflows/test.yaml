@@ -4,7 +4,6 @@ on: [push, pull_request]
 
 jobs:
   test:
-    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
